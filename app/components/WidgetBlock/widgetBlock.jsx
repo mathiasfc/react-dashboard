@@ -17,10 +17,6 @@ class WidgetBlock extends Component {
   render() {
     return (
       <div className={styles.widget}>
-        {/* <div><i className="fa fa-shopping-bag"></i></div>
-        <div><i className="far fa-comment"></i></div>
-        <div><i className="far fa-user"></i></div>
-        <div><i className="far fa-newspaper"></i></div> */}
         <div className={styles.icon}>
           <i className={this.props.className} />
         </div>
