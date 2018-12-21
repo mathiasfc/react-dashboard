@@ -17,6 +17,10 @@ class Traffic extends Component {
       .get('http://dev.4all.com:3050/pageViews')
       .then(response => {
         console.log('response', response);
+        //Para cara view, simulo um valor anterior, podendo ser maior ou menor (somente para ilustrar melhor o gráfico)
+        response.data.forEach(function(entry) {
+          entry["prevViews"] = (entry.views * Math.random() * (3 - 0.8) + 0.8).toFixed(0);
+        });
         this.setState({
           months: response.data
         });
@@ -42,8 +46,10 @@ class Traffic extends Component {
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="views" stroke="#8884d8" fill="#8884d8" />
+            <Area type="monotone" dataKey="prevViews" stroke="#9c9c9c" fill="#ececec" />
+            <Area type="monotone" dataKey="views" stroke="#2fa4ff" fill="#2fa4ff" />
           </AreaChart>
+          
         </ResponsiveContainer>
       );
     }
@@ -57,7 +63,11 @@ class Traffic extends Component {
   }
 
   render() {
-    return <div className={styles.container}>{this.loading()}</div>;
+    return <div className={styles.container}>
+      <span className={styles.trafficTitle}>Site Traffic Overview</span>
+      <hr></hr>
+      {this.loading()}
+    </div>;
   }
 }
 
