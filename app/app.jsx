@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from './app.less';
 
 import Widgets from './components/Widgets/widgets';
+import Traffic from './components/Traffic/traffic';
 
 class App extends Component {
   constructor(props) {
@@ -36,15 +37,10 @@ class App extends Component {
 
   render() {
     return (
-      //   <div>
-      //     <Hello name="worlsd" />
-      //     <Hello name="React" />
-      //     <Hello name="Less" />
-      //   </div>
       <div>
         <span className={styles.dashboard}>Dashboard</span>
-        {/* <button onClick={this.fetchUser}>Search</button> */}
-        <Widgets userId={this.state.fetchUser.userId} id={this.state.fetchUser.id} title={this.state.fetchUser.title} />
+        <Widgets />
+        <Traffic /> 
       </div>
     );
   }
