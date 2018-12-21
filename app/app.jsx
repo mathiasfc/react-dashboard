@@ -5,6 +5,7 @@ import styles from './app.less';
 
 import Widgets from './components/Widgets/widgets';
 import Traffic from './components/Traffic/traffic';
+import Chat from './components/Chat/chat';
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends Component {
         <span className={styles.dashboard}>Dashboard</span>
         <Widgets />
         <Traffic /> 
+        <Chat /> 
       </div>
     );
   }
