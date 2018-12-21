@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './widgets.less';
 import axios from 'axios';
 import WidgetBlock from '../WidgetBlock/widgetBlock';
-// import WidgetBlock from './WidgetBlock';
 
 class Widgets extends Component {
   constructor(props) {
