@@ -1,56 +1,79 @@
 :local(.msgBlock) {
   display: block;
-  width: 100%;
-  border-bottom: 1px solid rgb(185, 185, 185);
+  width: 96.5%;
+  border-bottom: 1px solid #b9b9b9;
+  border-right: 1px solid #b9b9b9;
   color: #5f666a;
-  height: 110px;
-  padding: 25px 0px 25px 20px;
+  height: auto;
+
+  .msgTitle {
+    margin-top: 5px;
+    width: auto;
+    .userName {
+      font-weight: bold;
+      color: #383a3b;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+    }
+    .msgTime {
+      color: gray;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  }
+
+  .msgBody {
+    width: 65%;
+    height: auto;
+    margin-top: 5px;
+    display: block;
+    max-height: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .msgTxt {
+    }
+  }
+
+  .userImg {
+    height: 80px;
+    border-radius: 100%;
+    width: auto;
+  }
 
   .imgRight {
+    height: 110px;
+    padding: 25px 25px 0px 20px;
     .msgTitle {
-      border: 1px solid black;
+      // margin-right: 90px;
       .userName {
-        font-weight: bold;
-        color: #383a3b;
-        font-size: 15px;
-        letter-spacing: 0.2px;
       }
       .msgTime {
-        color: gray;
-        font-size: 12px;
-        margin-left: 10px;
       }
     }
-
     .userImg {
-      height: 80px;
-      border-radius: 100%;
-      width: auto;
-      float: left;
+      float: right;
     }
   }
 
   .imgLeft {
+    height: 110px;
+    padding: 25px 0px 25px 20px;
     .msgTitle {
-      border: 1px solid black;
+      margin-left: 90px;
       .userName {
-        font-weight: bold;
-        color: #383a3b;
-        font-size: 15px;
-        letter-spacing: 0.2px;
       }
       .msgTime {
-        color: gray;
-        font-size: 12px;
-        margin-left: 10px;
       }
     }
 
     .userImg {
-      height: 80px;
-      border-radius: 100%;
-      width: auto;
       float: left;
+    }
+
+    .msgBody {
+      margin-left: 90px;
+      .msgTxt {
+      }
     }
   }
 }

@@ -57,6 +57,14 @@ class Chat extends Component {
     );
   }
 
+  msgSender(){
+    return (
+      <div className="msgSender">
+        <input type="text"></input><button>Send</button>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -66,6 +74,8 @@ class Chat extends Component {
         </div>
         <hr />
         {this.loading()}
+
+        {this.msgSender()}
       </div>
     );
   }

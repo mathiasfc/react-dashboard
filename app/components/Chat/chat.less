@@ -8,10 +8,10 @@
   -moz-box-shadow: 0px 0px 61px -32px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 61px -32px rgba(0, 0, 0, 0.75);
   padding: 10px;
-  width: 100%;
+  width: 103%;
   height: auto;
   background-color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 
   > div.loading {
     font-size: 50px;
@@ -50,10 +50,28 @@
   }
 
   .chatContainer {
-    height: 200px;
+    height: 300px;
     width: 105%;
     margin-left: -2.8%;
     margin-top: -18px;
     overflow-y: scroll;
+  }
+  
+  .msgSender{
+    position: absolute;
+    border: 2px solid red;
+    width: 93%;
+    margin-left: -10px;
+    display: inline-flex;
+    > input{
+      width: 80%;
+    }
+
+    > button{
+      background-color:green;
+      color:white;
+      font-weight: normal;
+      width:30%;
+    }
   }
 }

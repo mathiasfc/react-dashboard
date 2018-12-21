@@ -18,6 +18,9 @@ class Message extends Component {
               <span className="userName">{userName}</span>
               <span className="msgTime">{time}</span>
             </div>
+            <div className="msgBody">
+              <span className="msgTxt">{message}</span>
+            </div>
           </div>
         </div>
       );
