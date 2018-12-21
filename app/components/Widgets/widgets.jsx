@@ -48,9 +48,17 @@ class Widgets extends Component {
     let structure = [];
     //Itera entre os atributos do objeto de retorno da API
     for (var key in this.state.fetchWidgets) {
-      structure.push(<WidgetBlock className={dictIcons[key]} value={this.state.fetchWidgets[key]} />);
+      let value = this.state.fetchWidgets[key];
+      if (value.toString().length > 3) {
+        value = this.formatValue(value);
+      }
+      structure.push(<WidgetBlock className={dictIcons[key]} value={value} name={key}/>);
     }
     return structure;
+  }
+
+  formatValue(value) {
+    return value > 999 ? (value / 1000).toFixed(1) + 'k' : value;
   }
 
   render() {

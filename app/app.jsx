@@ -42,7 +42,7 @@ class App extends Component {
       //     <Hello name="Less" />
       //   </div>
       <div>
-        <p className={styles.dashboard}>Dashboard</p>
+        <span className={styles.dashboard}>Dashboard</span>
         {/* <button onClick={this.fetchUser}>Search</button> */}
         <Widgets userId={this.state.fetchUser.userId} id={this.state.fetchUser.id} title={this.state.fetchUser.title} />
       </div>

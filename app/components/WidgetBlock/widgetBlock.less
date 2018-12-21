@@ -1,19 +1,74 @@
 :local(.widget) {
-  border: 1px solid red;
-  width: 20%;
-  height: 80px;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 61px -32px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 61px -32px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 61px -32px rgba(0, 0, 0, 0.75);
 
   :local(.icon) {
     display: block;
-    width: 50%;
-    float: left;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     text-align: center;
-    background-color: grey;
-    line-height: 95px;
-    height: 100%;
+    background-color: skyblue;
+    line-height: 70px;
+    height: 50%;
 
     i {
-      font-size: 40px;
+      color: white;
+      font-size: 35px;
     }
+  }
+
+  .newOrders {
+    background-color: #30a5ff;
+  }
+
+  .comments {
+    background-color: #ffb53e;
+  }
+
+  .newUsers {
+    background-color: #1ebfae;
+  }
+
+  .pageViews {
+    background-color: #f9243f;
+  }
+
+  :local(.rightContent) {
+    display: block;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    background-color: #ffffff;
+    line-height: 14px;
+    height: 50%;
+
+    > div {
+      height: 100%;
+      display: inline-block;
+    }
+    span:first-of-type {
+      margin-top: 18px;
+      font-size: 18px;
+      color: #505050;
+      font-weight: bold;
+      display: block;
+    }
+
+    span {
+      font-size: 12px;
+      color: #959595;
+    }
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .selector {
+    color: blue;
   }
 }
