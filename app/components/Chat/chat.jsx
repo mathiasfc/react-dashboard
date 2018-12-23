@@ -10,6 +10,7 @@ class Chat extends Component {
       messages: [],
       inputValue: ""
     };
+    this.chatScroll = null;
     this.loadMessages = this.loadMessages.bind(this);
     this.sendMsg = this.sendMsg.bind(this);
   }
@@ -57,6 +58,7 @@ class Chat extends Component {
         this.setState({
           messages: this.state.messages
         });
+        this.scrollToBottom();
         console.log("sendMsg", this.state.sendMsg);
       })
       .catch(error => {
@@ -81,7 +83,11 @@ class Chat extends Component {
 
   loading() {
     if (this.state.messages.length > 0) {
-      return <div className="chatContainer">{this.createStructure()}</div>;
+      return (
+        <div ref={ref => (this.chatScroll = ref)} className="chatContainer">
+          {this.createStructure()}
+        </div>
+      );
     }
     return (
       <div className="loading">
@@ -90,6 +96,13 @@ class Chat extends Component {
         </span>
       </div>
     );
+  }
+
+  scrollToBottom() {
+    this.chatScroll.scrollTo({
+      top: this.chatScroll.offsetTop + this.chatScroll.offsetHeight,
+      behavior: "smooth"
+    });
   }
 
   msgSender() {
