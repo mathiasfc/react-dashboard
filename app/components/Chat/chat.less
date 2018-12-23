@@ -19,7 +19,7 @@
     margin-top: 50px;
   }
 
-  > hr {
+  .titleLine {
     display: block;
     height: 1px;
     border: 0;
@@ -83,6 +83,25 @@
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       font-size: 17px;
+    }
+  }
+}
+
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  :local(.container) {
+    .titleLine {
+      width: 103.8%;
+      margin-left: -1.8%;
+      margin-top: -1px;
+    }
+
+    .chatContainer {
+      width: 104%;
+    }
+
+    .msgSender {
+      width: 98.2%;
     }
   }
 }

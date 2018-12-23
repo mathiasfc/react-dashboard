@@ -67,8 +67,25 @@
   }
 }
 
-@media screen and (min-width: 1023px) {
-  .selector {
-    color: blue;
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  :local(.widget) {
+    display: flex;
+    height: 60px;
+    
+    :local(.icon) {
+      height: 100%;
+      width: 20%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 5px;
+      line-height: 77px;
+    }
+
+    :local(.rightContent) {
+      height: 100%;
+      text-align: left;
+      padding-left: 15px;
+    }
   }
 }

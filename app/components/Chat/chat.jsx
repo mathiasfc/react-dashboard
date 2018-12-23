@@ -133,7 +133,7 @@ class Chat extends Component {
           <i className="far fa-comments" />
           <span>Chat</span>
         </div>
-        <hr />
+        <hr className="titleLine" />
         {this.loading()}
         {this.msgSender()}
       </div>
