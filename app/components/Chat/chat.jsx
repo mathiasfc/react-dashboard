@@ -13,6 +13,7 @@ class Chat extends Component {
     this.chatScroll = null;
     this.loadMessages = this.loadMessages.bind(this);
     this.sendMsg = this.sendMsg.bind(this);
+    this.onEnterClick = this.onEnterClick.bind(this);
   }
 
   loadMessages() {
@@ -49,21 +50,26 @@ class Chat extends Component {
   }
 
   sendMsg() {
-    axios
-      .post("http://dev.4all.com:3050/messages")
-      .then(response => {
-        console.log("response", response);
-        let msg = this.newMessage();
-        this.state.messages.push(msg);
-        this.setState({
-          messages: this.state.messages
+    if (this.state.inputValue) {
+      axios
+        .post("http://dev.4all.com:3050/messages")
+        .then(response => {
+          console.log("response", response);
+          let msg = this.newMessage();
+          this.state.messages.push(msg);
+          this.setState({
+            messages: this.state.messages
+          });
+          this.scrollToBottom();
+          this.setState({
+            inputValue: ""
+          });
+          console.log("sendMsg", this.state.sendMsg);
+        })
+        .catch(error => {
+          console.log(error);
         });
-        this.scrollToBottom();
-        console.log("sendMsg", this.state.sendMsg);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    }
   }
 
   componentDidMount() {
@@ -105,10 +111,16 @@ class Chat extends Component {
     });
   }
 
+  onEnterClick(e) {
+    if (e.key === "Enter") {
+      this.sendMsg();
+    }
+  }
+
   msgSender() {
     return (
       <div className="msgSender">
-        <input type="text" onChange={evt => this.updateInputValue(evt)} placeholder="Type your message here..." />
+        <input type="text" value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} onKeyPress={this.onEnterClick} placeholder="Type your message here..." />
         <button onClick={this.sendMsg}>Send</button>
       </div>
     );

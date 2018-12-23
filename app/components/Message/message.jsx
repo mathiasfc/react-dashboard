@@ -22,7 +22,9 @@ class Message extends Component {
               <span className="msgTxt">{message}</span>
             </div>
           </div>
+          <hr></hr>
         </div>
+        
       );
     }
   }
