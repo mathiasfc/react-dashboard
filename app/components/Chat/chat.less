@@ -113,3 +113,28 @@
     }
   }
 }
+
+/*Customized Scroll*/
+.chatContainer::-webkit-scrollbar {
+  width: 7px;
+}
+
+.chatContainer::-webkit-scrollbar-thumb {
+  background: #969696;
+  border-radius: 20px;
+}
+
+.chatContainer::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  :local(.container) {
+    .titleLine {
+      width: 102.3%;
+      margin-left: -1.2%;
+    }
+  }
+}
