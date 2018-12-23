@@ -72,7 +72,7 @@
   :local(.widget) {
     display: flex;
     height: 60px;
-    
+
     :local(.icon) {
       height: 100%;
       width: 20%;
@@ -85,7 +85,42 @@
     :local(.rightContent) {
       height: 100%;
       text-align: left;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
       padding-left: 15px;
     }
+  }
+}
+
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  :local(.widget) {
+    display: inline-flex;
+    width: 47.4%;
+  }
+
+  :local(.widget):nth-child(2n) {
+    margin-left: 5%;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  :local(.widget) {
+    display: inline-flex;
+    width: 21.2%;
+
+    :local(.icon) {
+      width: 70%;
+    }
+  }
+
+  :local(.widget):nth-child(2n) {
+    margin-left: 0px;
+  }
+
+  :local(.widget):not(:first-child) {
+    margin-left: 5%;
   }
 }

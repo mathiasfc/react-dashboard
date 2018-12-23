@@ -26,7 +26,7 @@
     border-top: 0.5px solid #dadada;
     margin: 1em 0;
     padding: 0;
-    width: 106%;
+    width: 105%;
     margin-left: -3%;
   }
 
@@ -91,7 +91,7 @@
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
   :local(.container) {
     .titleLine {
-      width: 103.8%;
+      width: 103.3%;
       margin-left: -1.8%;
       margin-top: -1px;
     }
@@ -102,6 +102,16 @@
 
     .msgSender {
       width: 98.2%;
+    }
+  }
+}
+
+@media (min-width: 691px) {
+  :local(.container) {
+    /*max-width: 600px;*/
+    max-width: 65%;
+    .msgSender {
+      width: 97.6%;
     }
   }
 }
