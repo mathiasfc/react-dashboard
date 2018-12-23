@@ -44,7 +44,6 @@ class Message extends Component {
       newUsers: "New Users",
       pageViews: "Page Views"
     };
-
     return dictNames[name];
   }
 
