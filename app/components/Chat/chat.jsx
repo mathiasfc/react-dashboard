@@ -1,26 +1,63 @@
-import React, { Component } from 'react';
-import styles from './chat.less';
-import axios from 'axios';
-import Message from '../Message/message';
+import React, { Component } from "react";
+import styles from "./chat.less";
+import axios from "axios";
+import Message from "../Message/message";
 
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
+      inputValue: ""
     };
     this.loadMessages = this.loadMessages.bind(this);
+    this.sendMsg = this.sendMsg.bind(this);
   }
 
   loadMessages() {
-    axios
-      .get('http://dev.4all.com:3050/messages')
-      .then(response => {
-        console.log('response', response);
-        this.setState({
-          messages: response.data
+    if (this.state.messages.length == 0) {
+      axios
+        .get("http://dev.4all.com:3050/messages")
+        .then(response => {
+          console.log("response", response);
+          this.setState({
+            messages: response.data
+          });
+          console.log("loadMessages", this.state.loadMessages);
+        })
+        .catch(error => {
+          console.log(error);
         });
-        console.log('loadMessages', this.state.loadMessages);
+    }
+  }
+
+  updateInputValue(evt) {
+    this.setState({
+      inputValue: evt.target.value
+    });
+  }
+
+  newMessage() {
+    return {
+      userName: "Eu",
+      portrait: "orange",
+      message: this.state.inputValue,
+      displayPortraitLeft: true,
+      time: "1 min ago"
+    };
+  }
+
+  sendMsg() {
+    axios
+      .post("http://dev.4all.com:3050/messages")
+      .then(response => {
+        console.log("response", response);
+        let msg = this.newMessage();
+        this.state.messages.push(msg);
+        this.setState({
+          messages: this.state.messages
+        });
+        console.log("sendMsg", this.state.sendMsg);
       })
       .catch(error => {
         console.log(error);
@@ -36,8 +73,6 @@ class Chat extends Component {
     let structure = [];
 
     messages.forEach(function(msg) {
-      //console.log(msg);
-      //let className = msg.displayPortraitLeft ? 'imgLeft' : 'imgRight';
       structure.push(<Message msg={msg} />);
     });
 
@@ -57,10 +92,11 @@ class Chat extends Component {
     );
   }
 
-  msgSender(){
+  msgSender() {
     return (
       <div className="msgSender">
-        <input type="text"></input><button>Send</button>
+        <input type="text" onChange={evt => this.updateInputValue(evt)} placeholder="Type your message here..." />
+        <button onClick={this.sendMsg}>Send</button>
       </div>
     );
   }
@@ -74,7 +110,6 @@ class Chat extends Component {
         </div>
         <hr />
         {this.loading()}
-
         {this.msgSender()}
       </div>
     );
