@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './widgetBlock.less';
 
 class WidgetBlock extends Component {
+  //Se já possuir as informações, renderiza, se não, apresenta um loader
   loading() {
     const value = this.props.value;
     const name = this.props.name;
@@ -22,6 +23,7 @@ class WidgetBlock extends Component {
     );
   }
 
+  //Formata o nome dos widgets de acordo com o retorno da API.
   formatName(name) {
     const dictNames = {
       newOrders: 'New Orders',

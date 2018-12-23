@@ -12,6 +12,8 @@ class Traffic extends Component {
     this.fetchData = this.fetchData.bind(this);
   }
 
+  //Busca as informações através da API, os valores 'prevViews' é uma simulação de valores randômicos
+  //para ilustrar melhor o gráfico.
   fetchData() {
     axios
       .get('http://dev.4all.com:3050/pageViews')
@@ -35,8 +37,7 @@ class Traffic extends Component {
     this.fetchData();
   }
 
-  createStructure() {}
-
+  //Se já possuir as informações, renderiza, se não, apresenta um loader
   loading() {
     if (this.state.months.length > 0) {
       return (

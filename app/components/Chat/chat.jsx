@@ -16,6 +16,7 @@ class Chat extends Component {
     this.onEnterClick = this.onEnterClick.bind(this);
   }
 
+  //Carrega as mensagens via API
   loadMessages() {
     if (this.state.messages.length == 0) {
       axios
@@ -33,12 +34,14 @@ class Chat extends Component {
     }
   }
 
+  //Atualiza o texto digitado
   updateInputValue(evt) {
     this.setState({
       inputValue: evt.target.value
     });
   }
 
+  //Novo Objeto que representa a nova mensagem
   newMessage() {
     return {
       userName: "Eu",
@@ -49,6 +52,7 @@ class Chat extends Component {
     };
   }
 
+  //Requisição POST para API, independente do retorno, insere uma nova mensagem no chat
   sendMsg() {
     if (this.state.inputValue) {
       axios
@@ -76,6 +80,7 @@ class Chat extends Component {
     this.loadMessages();
   }
 
+  //Devolve um array com todas as mensagens retornadas pela API
   createStructure() {
     let messages = this.state.messages;
     let structure = [];
@@ -87,6 +92,7 @@ class Chat extends Component {
     return structure;
   }
 
+  //Se já possuir as informações, renderiza, se não, apresenta um loader
   loading() {
     if (this.state.messages.length > 0) {
       return (
@@ -104,6 +110,7 @@ class Chat extends Component {
     );
   }
 
+  //Função que scrolla o chat para baixo
   scrollToBottom() {
     this.chatScroll.scrollTo({
       top: this.chatScroll.offsetTop + this.chatScroll.offsetHeight,
@@ -111,6 +118,7 @@ class Chat extends Component {
     });
   }
 
+  //Handler para ao clicar no Enter enviar a mensagem digitada
   onEnterClick(e) {
     if (e.key === "Enter") {
       this.sendMsg();

@@ -56,6 +56,7 @@ class Widgets extends Component {
     return structure;
   }
 
+  //Formata o valor, ex: 1020 -> 1.0k | 1200 -> 1.2k
   formatValue(value) {
     return value > 999 ? (value / 1000).toFixed(1) + "k" : value;
   }

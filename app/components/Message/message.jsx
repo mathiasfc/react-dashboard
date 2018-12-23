@@ -22,9 +22,8 @@ class Message extends Component {
               <span className="msgTxt">{message}</span>
             </div>
           </div>
-          <hr></hr>
+          <hr />
         </div>
-        
       );
     }
   }
@@ -35,16 +34,6 @@ class Message extends Component {
     } else {
       return <img className="userImg" src={portrait} />;
     }
-  }
-
-  formatName(name) {
-    const dictNames = {
-      newOrders: "New Orders",
-      comments: "Comments",
-      newUsers: "New Users",
-      pageViews: "Page Views"
-    };
-    return dictNames[name];
   }
 
   render() {
